@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public static EnemyManager instance;
+    // Start is called before the first frame update
+   public static EnemyManager instance;
 
    void Awake(){
 
-           instance = this;
+        instance = this;
 
    }
 
    public GameObject spawnPoint;
+
+    
 }
+

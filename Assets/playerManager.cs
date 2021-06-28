@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerManager : MonoBehaviour
-{
-   public static playerManager instance;
+public class PlayerManager : MonoBehaviour
+{               
+    
+    public static PlayerManager instance;
 
-   void Awake(){
+    void Awake(){
 
-           instance = this;
+        instance = this;
 
-   }
+    }
 
-   public GameObject player;
+    public GameObject player;
+
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
 
-    public float LookRadius = 20f;
+    public float LookRadius = 5f;
 
     public float MoveSpeed = 2f;
 
@@ -19,17 +19,27 @@ public class EnemyController : MonoBehaviour
 
     Vector3 velocity;
 
+    Animator anim;
+
     void Start(){
 
-        target = playerManager.instance.player.transform;
+        target = PlayerManager.instance.player.transform;
         spawnPoint = EnemyManager.instance.spawnPoint.transform;
+
+        anim = GetComponent<Animator>();
     }
 
     void Update(){
 
         if(Vector2.Distance(transform.position, target.position) <= LookRadius) {
         transform.LookAt(target);
+            if(Vector2.Distance(transform.position, target.position) <= 50){
+                anim.SetInteger("Condition", 1);
+            }else{
+
+            }
         }else{
+        anim.SetInteger("Condition", 0);
         transform.LookAt(spawnPoint);
         }
         Vector3 eulerAngles = transform.rotation.eulerAngles;
